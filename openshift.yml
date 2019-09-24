@@ -27,7 +27,7 @@ objects:
         name: apicast-policy:example
     source:
       git:
-        uri: https://github.com/3scale/apicast-example-policy.git
+        uri: https://github.com/zhanggx-git/apicast-example-policy.git
         ref: 'master'
       type: Git
     strategy:
@@ -66,7 +66,7 @@ objects:
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
-              sourcePath: /opt/app-root/policies/example
+              sourcePath: /opt/app-root/policies/custom_example
             # copy also installed dependencies to the policy folder, so they are vendored
             # - destinationDir: policies/example/0.1/resty/
             #   sourcePath: /opt/app-root/src/lua_modules/share/lua/5.1/resty/iputils.lua
