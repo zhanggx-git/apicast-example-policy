@@ -11,7 +11,7 @@
       "is_log": {
         "type": "boolean",
         "description": "Whether log global value and headers.",
-        "default": "true"
+        "default": true
       }
     }
   }
