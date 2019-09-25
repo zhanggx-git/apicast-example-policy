@@ -25,6 +25,8 @@ end
 
 function _M:rewrite()
   -- change the request before it reaches upstream
+  ngx.log(ngx.NOTICE, '################CustomExamplePolicy2') 
+  ngx.log(ngx.NOTICE, '################CustomExamplePolicy2-global_value', ngx.ctx.global_value) 
 
   ngx.log(ngx.NOTICE, '########global_value: ', ngx.ctx.global_value, ' headers: ', ngx.req.get_headers())  
 
