@@ -48,10 +48,10 @@ objects:
     nodeSelector: null
     output:
       to:
-        #kind: ImageStreamTag
-        #name: 'amp-apicast:latest'
-        kind: DockerImage
-        name: registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway
+        kind: ImageStreamTag
+        name: 'amp-apicast:latest'
+        #kind: DockerImage
+        #name: registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway
     postCommit:
       args:
         - '--test'
