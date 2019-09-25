@@ -10,9 +10,6 @@ function _M.new(configuration)
   local self = new()
 
   local config = configuration or {}
-  local is_log = config.is_log or {}
-
-  self.is_log = is_log
 
   return self
 end
@@ -29,10 +26,7 @@ end
 function _M:rewrite()
   -- change the request before it reaches upstream
 
-  if(self.is_log)
-    then
-      ngx.log(ngx.NOTICE, 'global_value: ', ngx.ctx.global_value, ' headers: ', ngx.req.get_headers())
-  end
+  ngx.log(ngx.NOTICE, '########global_value: ', ngx.ctx.global_value, ' headers: ', ngx.req.get_headers())  
 
 end
 

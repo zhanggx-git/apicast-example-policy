@@ -17,7 +17,7 @@ function _M.new(configuration)
 
   for _, header in ipairs(set_header) do
     insert(ops, function()
-      ngx.log(ngx.NOTICE, 'setting header: ', header.name, ' to: ', header.value)
+      ngx.log(ngx.NOTICE, '######setting header: ', header.name, ' to: ', header.value)
       ngx.req.set_header(header.name, header.value)
     end)
   end
@@ -42,6 +42,8 @@ function _M:rewrite(context)
 
   -- Write global_value into the context so other policies or later phases can read it.
   context.global_value = self.global_value
+  ngx.log(ngx.NOTICE, '######context.global_value: ', context.global_value)
+
 
   for _,op in ipairs(self.ops) do
     op()
