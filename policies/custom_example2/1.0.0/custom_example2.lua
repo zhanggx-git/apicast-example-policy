@@ -1,29 +1,17 @@
-local _M = require('apicast.policy').new('Custom Example', '1.0.0')
+local _M = require('apicast.policy').new('Custom Example2', '1.0.0')
 
 local new = _M.new
 
 local ipairs = ipairs
 local insert = table.insert
 
+local is_log = true
+
 function _M.new(configuration)
   local self = new()
 
-  local ops = {}
-
   local config = configuration or {}
-  local set_header = config.set_header or {}
-
-  local global_value = config.global_value or {}
-
-  for _, header in ipairs(set_header) do
-    insert(ops, function()
-      ngx.log(ngx.NOTICE, 'setting header: ', header.name, ' to: ', header.value)
-      ngx.req.set_header(header.name, header.value)
-    end)
-  end
-
-  self.global_value = global_value
-  self.ops = ops
+  is_log = config.is_log or {}
 
   return self
 end
@@ -37,15 +25,14 @@ function _M:init_worker()
   -- do work when nginx worker process is forked from master
 end
 
-function _M:rewrite(context)
+function _M:rewrite()
   -- change the request before it reaches upstream
 
-  -- Write global_value into the context so other policies or later phases can read it.
-  context.global_value = self.global_value
-
-  for _,op in ipairs(self.ops) do
-    op()
+  if(is_log)
+    then
+      ngx.log(ngx.NOTICE, 'global_value: ', ngx.ctx.global_value, ' headers: ', ngx.req.get_headers())
   end
+
 end
 
 function _M:access()

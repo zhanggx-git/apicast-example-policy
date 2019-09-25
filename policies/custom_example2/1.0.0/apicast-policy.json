@@ -1,0 +1,18 @@
+{
+  "$schema": "http://apicast.io/policy-v1/schema#manifest#",
+  "name": "CustomExamplePolicy2",
+  "summary": "Log request header",
+  "description":
+  ["This policy log header." ],
+  "version": "1.0.0",
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "is_log": {
+        "type": "boolean",
+        "description": "Whether log global value and headers.",
+        "default": "true"
+      }
+    }
+  }
+}

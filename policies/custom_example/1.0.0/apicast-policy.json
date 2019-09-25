@@ -1,15 +1,18 @@
 {
   "$schema": "http://apicast.io/policy-v1/schema#manifest#",
-  "name": "Custom Example policy",
+  "name": "CustomExamplePolicy",
   "summary": "Sets request headers",
   "description":
-  ["This policy is meant to be just an example.",
-    "It sets request headers based on the configuration.",
-    "And prints a log entry for each header set. " ],
+  ["This policy sets request headers based on the configuration, then log it." ],
   "version": "1.0.0",
   "configuration": {
     "type": "object",
     "properties": {
+      "global_value": {
+        "type": "string",
+        "description": "Global value is available in the policy chain",
+        "default": "myGlobalValue-123456"
+      },
       "set_header": {
         "type": "array",
         "items": {
@@ -17,11 +20,13 @@
           "properties": {
             "name": {
               "type": "string",
-              "description": "HTTP header name"
+              "description": "HTTP header name",
+              "default": "UBHeader"
             },
             "value": {
               "type": "string",
-              "description": "HTTP header value"
+              "description": "HTTP header value",
+              "default": "UB3scale-xxxxxx"
             }
           },
           "required": ["name", "value"]
