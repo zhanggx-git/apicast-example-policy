@@ -23,12 +23,12 @@ function _M:init_worker()
   -- do work when nginx worker process is forked from master
 end
 
-function _M:rewrite()
+function _M:rewrite(context)
   -- change the request before it reaches upstream
   ngx.log(ngx.NOTICE, '################CustomExamplePolicy2') 
-  ngx.log(ngx.NOTICE, '################CustomExamplePolicy2-global_value', ngx.ctx.global_value) 
+  ngx.log(ngx.NOTICE, '################CustomExamplePolicy2-global_value: ', context.global_value) 
 
-  ngx.log(ngx.NOTICE, '########global_value: ', ngx.ctx.global_value, ' headers: ', ngx.req.get_headers())  
+  ngx.log(ngx.NOTICE, '########global_value: ', context.global_value, ' headers: ', ngx.req.get_headers())  
 
 end
 
