@@ -25,12 +25,12 @@ end
 
 function _M:rewrite(context)
   -- change the request before it reaches upstream
-  ngx.log(ngx.WARN, '################CustomExamplePolicy2-get global_value: ', context.global_value) 
+  ngx.log(ngx.WARN, '################CustomExamplePolicy2-get global_value: [', context.global_value, ']') 
 
   ngx.log(ngx.WARN, '################CustomExamplePolicy2-get headers:') 
   local headers = ngx.req.get_headers()
   for k, v in pairs(headers) do
-    ngx.log(ngx.WARN, '########headerName: ', k, ' headerValue: ', headers[v])  
+    ngx.log(ngx.WARN, '########headerName: [', k, '], headerValue: [', v, ']')  
   end
 
 end
