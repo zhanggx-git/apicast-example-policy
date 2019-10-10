@@ -17,6 +17,7 @@ objects:
   kind: BuildConfig
   metadata:
     annotations:
+      openshift.io/image.insecureRepository: "true"
     labels:
       app: apicast
     name: apicast-example-policy
