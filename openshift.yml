@@ -97,4 +97,4 @@ parameters:
 - name: AMP_RELEASE
   required: true
   description: AMP Version (eg. 2.2.0-GA)
-  value: 2.6
+  value: "2.6"
