@@ -38,7 +38,7 @@ objects:
           #kind: ImageStreamTag
           #name: 'amp-apicast-demo:${AMP_RELEASE}'
           kind: DockerImage
-          name: registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
+          name: registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
 
 - apiVersion: v1
   kind: BuildConfig
@@ -54,7 +54,7 @@ objects:
         #kind: ImageStreamTag
         #name: 'amp-apicast-demo:latest'
         kind: DockerImage
-        name: registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
+        name: registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
     postCommit:
       args:
         - '--test'
@@ -88,7 +88,7 @@ objects:
           #kind: ImageStreamTag
           #name: 'amp-apicast-demo:${AMP_RELEASE}'
           kind: DockerImage
-          name: registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
+          name: registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
       type: Docker
     triggers:
       - type: ConfigChange
