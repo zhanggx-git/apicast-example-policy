@@ -34,10 +34,8 @@ objects:
       type: Source
       sourceStrategy:
         from:
-          #kind: ImageStreamTag
-          #name: 'amp-apicast-demo:${AMP_RELEASE}'
-          kind: DockerImage
-          name: registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
+          kind: ImageStreamTag
+          name: 'amp-apicast:${AMP_RELEASE}'
 
 - apiVersion: v1
   kind: BuildConfig
@@ -50,10 +48,10 @@ objects:
     nodeSelector: null
     output:
       to:
-        #kind: ImageStreamTag
-        #name: 'amp-apicast-demo:latest'
-        kind: DockerImage
-        name: registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
+        kind: ImageStreamTag
+        name: 'amp-apicast:latest'
+        #kind: DockerImage
+        #name: registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway
     postCommit:
       args:
         - '--test'
@@ -84,10 +82,8 @@ objects:
     strategy:
       dockerStrategy:
         from:
-          #kind: ImageStreamTag
-          #name: 'amp-apicast-demo:${AMP_RELEASE}'
-          kind: DockerImage
-          name: registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo
+          kind: ImageStreamTag
+          name: 'amp-apicast:${AMP_RELEASE}'
       type: Docker
     triggers:
       - type: ConfigChange
@@ -97,4 +93,3 @@ parameters:
 - name: AMP_RELEASE
   required: true
   description: AMP Version (eg. 2.2.0-GA)
-  value: 2.6
